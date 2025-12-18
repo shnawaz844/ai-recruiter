@@ -71,7 +71,8 @@ function MedicalVoiceAgent() {
     const VapiAgentConfig = {
       name: "AI Medical Doctor Voice Agent",
       firstMessage:
-        "नमस्ते! मैं आपका एआई मेडिकल असिस्टेंट हूँ। मैं आपकी सेहत से जुड़े किसी भी सवाल में आपकी मदद कर सकता हूँ। आप आज कैसा महसूस कर रहे हैं",
+        "नमस्ते! मैं आपकी एआई मेडिकल असिस्टेंट हूँ। मैं आपकी सेहत से जुड़े किसी भी सवाल में आपकी मदद कर सकती हूँ। आप आज कैसा महसूस कर रहे हैं?",
+
       transcriber: {
         model: "nova-3",
         provider: "deepgram",
