@@ -15,7 +15,7 @@ export const AITeacherAgents = [
         id: 2,
         specialist: "Science Teacher",
         description: "Covers Physics, Chemistry, and Biology till Class 10.",
-        image: "/science.jpg",
+        image: "/science1.jpg",
         agentPrompt:
             "Hello! Mai aapka Science teacher hoon. Aaj hum Physics, Chemistry, aur Biology ke interesting topics explore karenge. Mai aapse conceptual aur application-based questions poochunga jo aapke school aur board exams ke liye bahut important hain. Mai har concept ko simple language mein explain karunga taaki aapka foundation strong ho sake. Let's dive into the world of science!",
         voiceId: "chris",
