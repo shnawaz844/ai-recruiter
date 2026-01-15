@@ -1,59 +1,59 @@
-export const AITeacherAgents = [
+export const AIRecruiterAgents = [
     {
         id: 1,
-        specialist: "Mathematics Teacher",
-        description: "Helps students understand maths concepts from basics to advanced.",
-        image: "/math.jpg",
+        specialist: "Software Engineer Recruiter",
+        description: "Screens candidates for software engineering roles - frontend, backend, and full-stack positions.",
+        image: "/recruiter-tech.jpg",
         agentPrompt:
-            "Hi! I am your Mathematics mentor. Aaj hum math ke concepts ko simplify karenge. Mai aapse step-by-step questions poochungi—basic formulas se lekar complex problems tak—bilkul ek question-answer session ki tarah. Agar aap kahin bhi atak jayein, toh don't worry, mai aapko simple Hindi aur English mein guide karungi. Let's make math easy. Kya aap shuru karne ke liye taiyar hain?",
-        voiceId: "Rohan",
-        gender: "female" as const,
+            "Hi! Main Recruitment team se call kar raha hoon. Thanks for joining. Hamaare paas ek exciting Software Engineer role hai jo aapki profile se match karta hai. Before we start, main role ke baare mein thoda bata deta hoon. Hum ek talented engineer dhoond rahe hain. Kya yeh role aapko interesting lag raha hai for further discussion?",
+        voiceId: "chris",
+        gender: "male" as const,
         subscriptionRequired: false,
     },
 
     {
         id: 2,
-        specialist: "Science Teacher",
-        description: "Covers Physics, Chemistry, and Biology till Class 10.",
-        image: "/science1.jpg",
+        specialist: "Sales & Marketing Recruiter",
+        description: "Specializes in hiring for sales representatives, account executives, and marketing professionals.",
+        image: "/recruiter-sales.jpg",
         agentPrompt:
-            "Hello! Mai aapka Science teacher hoon. Aaj hum Physics, Chemistry, aur Biology ke interesting topics explore karenge. Mai aapse conceptual aur application-based questions poochunga jo aapke school aur board exams ke liye bahut important hain. Mai har concept ko simple language mein explain karunga taaki aapka foundation strong ho sake. Let's dive into the world of science!",
-        voiceId: "chris",
-        gender: "male" as const,
-        subscriptionRequired: true,
-    },
-
-    {
-        id: 3,
-        specialist: "Physics Teacher",
-        description: "Teaches Physics concepts for Classes 11 and 12.",
-        image: "/physics1.jpg",
-        agentPrompt:
-            "Welcome! I am specialized in Senior Secondary Physics. Aaj hum mechanics, electromagnetism, aur optics jaise core topics par focus karenge. Mera approach interactive rahega—mai aapse derivations aur numerical-based questions poochunga jo competitive exams ke liye zaroori hain. Agar calculations ya logic mein doubt ho, toh be-jhijhak poochiye. Physics ko logic se samjhenge. Shall we begin?",
+            "Hello! Kaise hain aap? Main Sales aur Marketing recruitment team se hoon. Maine aapki profile dekhi aur mujhe laga ki aap hamare naye role ke liye perfect fit ho sakte hain. Ye ek dynamic role hai business growth drive karne ke liye. Kya aap is opportunity ke baare mein aur discuss karna chahenge?",
         voiceId: "sarge",
         gender: "male" as const,
         subscriptionRequired: true,
     },
 
     {
-        id: 4,
-        specialist: "Chemistry Teacher",
-        description: "Covers Physical, Organic, and Inorganic Chemistry.",
-        image: "/chemistry2.jpg",
+        id: 3,
+        specialist: "Product Manager Recruiter",
+        description: "Recruits product managers, product owners, and product designers for tech companies.",
+        image: "/recruiter-product.jpg",
         agentPrompt:
-            "Hi there! Mai aapka Chemistry expert hoon. Hum Physical calculations, Organic reactions, aur Inorganic concepts ko cover karenge. Mai aapse reaction mechanisms aur periodic trends se related questions poochunga. Mera goal hai ki aap Chemistry ko ratne ke bajaye uske piche ka logic samjhein. Mai aapko Bilingual (Hindi-English) mein support karunga. Let's start the reaction!",
-        voiceId: "susan",
+            "Hi there! Main Product Manager role ke regarding call kar raha hoon. Ye position product strategy aur cross-functional teams lead karne ke liye hai. Details mein jaane se pehle, main aapke current experience aur career goals samajhna chahoonga. Kya aap interested hain is baare mein baat karne ke liye?",
+        voiceId: "atlas",
+        gender: "male" as const,
+        subscriptionRequired: true,
+    },
+
+    {
+        id: 4,
+        specialist: "Data Science Recruiter",
+        description: "Focuses on hiring data scientists, ML engineers, and analytics professionals.",
+        image: "/recruiter-data.jpg",
+        agentPrompt:
+            "Hello! Main Data Science aur ML roles ke liye hiring notice kar raha hoon. Hamaare paas ek Data Scientist ki opening hai jisme aap cutting-edge AI projects pe kaam karenge. Mujhe aapka data analysis experience discuss karna hai. Kya aap is role mein interest rakhte hain?",
+        voiceId: "hudson",
         gender: "male" as const,
         subscriptionRequired: true,
     },
 
     {
         id: 5,
-        specialist: "Biology Teacher",
-        description: "Teaches Biology for Classes 9 to 12.",
-        image: "/biology1.jpg",
+        specialist: "Operations Manager Recruiter",
+        description: "Recruits for operations, supply chain, and logistics management positions.",
+        image: "/recruiter-ops.jpg",
         agentPrompt:
-            "Hello! I am your Biology educator. Aaj hum life sciences ke complex processes, diagrams, aur functions ko bahut saral bhasha mein samjhenge. Mai aapse terminologies aur theory-based questions poochungi, jaise board exams aur NEET mein aate hain. Agar aapko koi diagram ya cycle samajhne mein mushkil ho, mai yahan hoon help karne ke liye. Chaliye, biological world ko explore karte hain!",
+            "Hi! Main Operations Manager position ke liye call kar rahi hoon. Hamein strong organizational skills waale candidate ki talaash hai jo efficiency improve kar sake. Main aapke operations experience ke baare mein sunna chahoongi. Kya hum is opportunity ko explore kar sakte hain?",
         voiceId: "eileen",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -61,11 +61,11 @@ export const AITeacherAgents = [
 
     {
         id: 6,
-        specialist: "English Teacher",
-        description: "Improves grammar, writing, and literature skills.",
-        image: "/english.jpg",
+        specialist: "Finance & Accounting Recruiter",
+        description: "Specializes in finance professionals, accountants, and financial analysts.",
+        image: "/recruiter-finance.jpg",
         agentPrompt:
-            "Greetings! I am your English language coach. Our goal is to master Grammar, Writing skills, and Literature. I will ask you questions about sentence structures, vocabulary, and chapter analysis to improve your fluency and confidence. I will explain rules in a mix of Hindi and English so you can grasp them perfectly. Ready to polish your English skills? Let’s proceed.",
+            "Hello! Main Finance aur Accounting roles ke liye recruit karti hoon. Hamaare paas financial analysis aur budgeting ke liye ek opening hai. Ideal candidate ke paas strong reporting skills honi chahiye. Kya aap apne finance updates aur background discuss karne mein interested hain?",
         voiceId: "charlotte",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -73,11 +73,11 @@ export const AITeacherAgents = [
 
     {
         id: 7,
-        specialist: "Hindi Teacher",
-        description: "Covers Hindi grammar, literature, and writing.",
-        image: "/hindi.jpg",
+        specialist: "UX/UI Designer Recruiter",
+        description: "Recruits designers for user experience, user interface, and product design roles.",
+        image: "/ux-ui.png",
         agentPrompt:
-            "Namaste! Mai aapki Hindi shikshika hoon. Hum Hindi vyakaran, sahitya (literature), aur creative writing par dhayan denge. Mai aapse kavitaon ke bhav aur vyakaran ke niyam poochungi, jo aapki bhasha aur exam performance dono ko behtar banayenge. Agar kisi shabd ka arth ya vyakhya samajh na aaye, toh mai usey saral tarike se samjhaungi. Chaliye, apni matrubhasha ko aur acche se samajhte hain.",
+            "Hi! Main ek UX/UI Designer position ke liye hiring kar rahi hoon. Ye ek innovative company hai jahan design ko bahut value di jaati hai. Aapko intuitive interfaces design karne honge. Main aapke portfolio aur design process ke baare mein sunna chahti hoon. Kya yeh role aapko exciting lag raha hai?",
         voiceId: "ayla",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -85,11 +85,11 @@ export const AITeacherAgents = [
 
     {
         id: 8,
-        specialist: "Social Science Teacher",
-        description: "Teaches History, Geography, Civics, and Economics.",
-        image: "/socialscience3.jpg",
+        specialist: "Customer Success Recruiter",
+        description: "Hires customer success managers, support specialists, and account managers.",
+        image: "/recruiter-customer.jpg",
         agentPrompt:
-            "Hi! Mai aapki Social Science guide hoon. Hum History ke events, Geography ke maps, Civics ke rules, aur Economics ke concepts ko discuss karenge. Mai aapse short case studies aur factual questions poochungi taaki aap topics ko ratne ke bajaye connect kar sakein. Sab kuch bahut simple Hindi aur English mein hoga. Kya aap history aur geography ki journey par chalne ke liye taiyar hain?",
+            "Hello! Main Customer Success Manager role ke liye reach out kar rahi hoon. Is role mein aap hamaare clients ke key contact rahenge. Hamein excellent communication skills waale candidate chahiye. Kya aap apne customer-facing experience ke baare mein discuss karna chahenge?",
         voiceId: "aaliyah",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -97,24 +97,24 @@ export const AITeacherAgents = [
 
     {
         id: 9,
-        specialist: "Computer Science Teacher",
-        description: "Teaches coding, logic, and computer fundamentals.",
-        image: "/computer.jpg",
+        specialist: "Human Resources Recruiter",
+        description: "Recruits HR professionals, talent acquisition specialists, and people operations roles.",
+        image: "/recruiter-hr.jpg",
         agentPrompt:
-            "Hello World! I am your Computer Science mentor. Aaj hum coding logic, algorithms, aur computer fundamentals par kaam karenge. Mai aapse logical programming questions aur theory-based questions poochunga. Coding ek skill hai, aur mai aapko syntax se lekar logic building tak sab kuch simple Hindi/English mein sikhaunga. Don't worry about bugs, we will solve them together. Ready to code?",
-        voiceId: "hudson",
-        gender: "male" as const,
+            "Hi! Main HR positions ke liye recruiter hoon. Hamaare paas ek talent management aur employee relations ke liye opening hai. Agar aap workplace culture build karne mein passionate hain, toh ye role aapke liye hai. Kya aap is opportunity ko explore karna chahenge?",
+        voiceId: "susan",
+        gender: "female" as const,
         subscriptionRequired: true,
     },
 
     {
         id: 10,
-        specialist: "Commerce Teacher",
-        description: "Covers Accountancy, Business Studies, and Economics.",
-        image: "/commerce.jpg",
+        specialist: "Executive & Leadership Recruiter",
+        description: "Specializes in C-level executives, directors, and senior leadership positions.",
+        image: "/recruiter-exec.jpg",
         agentPrompt:
-            "Hi! Mai aapka Commerce specialist hoon. Hum Accountancy ki balance sheets, Business Studies ke management principles, aur Economics ke market trends par focus karenge. Mai aapse numerical aur conceptual questions poochunga jo bilkul practical aur exam-oriented honge. Business logic ho ya accounting debit-credit, mai aapko clear Hindi/English mein guide karunga. Let’s build your professional foundation!",
-        voiceId: "atlas",
+            "Hello! Main senior leadership position ke liye executive search kar raha hoon. Is role main strategic vision aur team leadership ki zaroorat hai. Aapka background dekh kar lagta hai ki aap ek excellent fit ho sakte hain. Kya hum aapki leadership philosophy aur career goals discuss kar sakte hain?",
+        voiceId: "Rohan",
         gender: "male" as const,
         subscriptionRequired: true,
     },

@@ -1,7 +1,7 @@
 import React from 'react'
 import HistoryList from './_components/HistoryList'
 import { Button } from '@/components/ui/button'
-import DoctorsAgentList from './_components/DoctorsAgentList'
+import RecruitersAgentList from './_components/RecruitersAgentList'
 import AddNewSessionDialog from './_components/AddNewSessionDialog'
 
 function Dashboard() {
@@ -14,7 +14,7 @@ function Dashboard() {
             </div>
             <HistoryList />
 
-            <DoctorsAgentList />
+            <RecruitersAgentList />
         </div>
     )
 }

@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <div className="px-4 py-10 md:py-20">
         <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
-          {"🧠 Empower Schools with AI Learning Voice Assistants"
+          {"🎯 AI Recruiters that Screen, Interview, and Evaluate Candidates in Real Time"
             .split(" ")
             .map((word, index) => (
               <motion.span
@@ -45,7 +45,7 @@ export default function Home() {
           transition={{ duration: 0.3, delay: 0.8 }}
           className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
         >
-          24/7 AI-powered study assistance for students. Clarify concepts, revise subjects, practice exams, and learn confidently with voice-based AI tutors.
+          AI-powered recruitment platform that conducts professional screening calls, evaluates candidates, and generates detailed hiring insights—saving you time while finding the perfect fit for your team.
         </motion.p>
         <Link href={'/dashboard'}>
           <motion.div
@@ -70,7 +70,7 @@ export default function Home() {
           <div className="w-full max-w-4xl overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700">
             <img
               src="https://www.verloop.io/wp-content/uploads/vl-home-hero-img-alt-updated.jpg"
-              alt="AI Medical Assistant Demo"
+              alt="AI Recruitment Platform Demo"
               className="aspect-[16/9] h-auto w-full object-cover"
               height={1000}
               width={1000}
@@ -88,7 +88,29 @@ const Navbar = () => {
   return (
     <nav className="flex w-full items-center justify-between border-t border-b border-neutral-200 px-10 py-2 dark:border-neutral-800">
       <div className="flex items-center gap-2">
-        <Image src={'/school.jpg'} alt='logo' width={120} height={10} />
+        <div className='flex gap-2 items-center'>
+          <div className='bg-blue-600 p-2 rounded-full'>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 8V4H8" />
+              <rect width="16" height="12" x="4" y="8" rx="2" />
+              <path d="M2 14h2" />
+              <path d="M20 14h2" />
+              <path d="M15 13v2" />
+              <path d="M9 13v2" />
+            </svg>
+          </div>
+          <h1 className="text-xl font-bold text-slate-700 dark:text-slate-200">AI Recruitment</h1>
+        </div>
 
         {/* <div className="size-7 rounded-full bg-gradient-to-br from-violet-500 to-pink-500" />
         <h1 className="text-base font-bold md:text-2xl">MediVoice AI</h1> */}

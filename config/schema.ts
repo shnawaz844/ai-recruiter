@@ -12,9 +12,9 @@ export const SessionChatTable = pgTable('sessionChatTable', {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     sessionId: varchar().notNull(),
     notes: text(),
-    selectedDoctor: json(),
+    selectedRecruiter: json(), // HR recruiter agent selected for this screening call
     conversation: json(),
-    report: json(),
+    report: json(), // Candidate evaluation report
     vapiCallId: varchar(), // Vapi call ID for recording retrieval
     recordingUrl: text(), // Direct recording URL from Vapi end-of-call-report
     createdBy: varchar().references(() => usersTable.email),

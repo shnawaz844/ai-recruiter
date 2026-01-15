@@ -3,7 +3,7 @@
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
-import { doctorAgent } from "../../_components/DoctorAgentCard";
+import { recruiterAgent } from "../../_components/RecruiterCard";
 import { Circle, Loader, PhoneCall, PhoneOff } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ export type SessionDetail = {
   notes: string;
   sessionId: string;
   report: JSON;
-  selectedDoctor: doctorAgent;
+  selectedRecruiter: recruiterAgent;
   createdOn: string;
 };
 
@@ -25,13 +25,13 @@ type messages = {
 };
 
 /**
- * MedicalVoiceAgent Component
+ * RecruitmentCallAgent Component
  *
- * Provides an AI-powered medical voice assistant interface where users can
- * start a voice call with an AI doctor agent, interact in real-time,
- * view live transcripts, and generate a consultation report.
+ * Provides an AI-powered recruitment voice assistant interface where users can
+ * start a voice call with an AI recruiter agent, interact in real-time,
+ * view live transcripts, and generate a candidate evaluation report.
  */
-function MedicalVoiceAgent() {
+function RecruitmentCallAgent() {
   const { sessionId } = useParams(); // Get sessionId from route parameters
   const [sessionDetail, setSessionDetail] = useState<SessionDetail>(); // Current session details
   const [callStarted, setCallStarted] = useState(false); // Call connection status
@@ -58,11 +58,11 @@ function MedicalVoiceAgent() {
 
   /**
    * StartCall
-   * Initializes and starts the voice call with the AI Medical Doctor Voice Agent
+   * Initializes and starts the voice call with the AI HR Recruiter Voice Agent
    * using the Vapi SDK and sets up event listeners for call and speech events.
    */
   const StartCall = () => {
-    console.log("Starting call", sessionDetail);
+    console.log("Starting recruitment call", sessionDetail);
     if (!sessionDetail) return;
     setLoading(true);
 
@@ -70,28 +70,28 @@ function MedicalVoiceAgent() {
     const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!);
     setVapiInstance(vapi);
 
-    // Configuration for the AI voice agent
+    // Configuration for the AI recruiter voice agent
     const VapiAgentConfig = {
-      name: "AI Medical Trainer Voice Agent",
+      name: "AI HR Recruiter Voice Agent",
 
-      // Use the doctor's custom greeting/prompt
-      firstMessage: sessionDetail.selectedDoctor?.agentPrompt || "Hello, how can I help you today?",
+      // Use the recruiter's custom greeting/prompt
+      firstMessage: sessionDetail.selectedRecruiter?.agentPrompt || "Hello, thank you for joining this call.",
 
       transcriber: {
-        model: "nova-3",
+        model: "nova-2",
         provider: "deepgram",
         language: "hi",
       },
 
       voice: {
         model: "eleven_turbo_v2_5",
-        // Select voice based on doctor's gender
-        voiceId: sessionDetail.selectedDoctor?.gender === "male"
+        // Select voice based on recruiter's gender
+        voiceId: sessionDetail.selectedRecruiter?.gender === "male"
           ? process.env.NEXT_PUBLIC_MALE_VOICE_ID!
           : process.env.NEXT_PUBLIC_FEMALE_VOICE_ID!,
         provider: "11labs",
-        stability: 0.5,
-        similarityBoost: 0.75,
+        stability: 0.4,
+        similarityBoost: 0.8,
       },
 
       model: {
@@ -101,31 +101,61 @@ function MedicalVoiceAgent() {
           {
             role: "system",
             content: `
-You are an experienced AI ${sessionDetail.selectedDoctor?.specialist || "Medical Trainer"}, not a real doctor.
+You are a professional HR recruiter conducting an initial screening call.
 
-🔹 Training Topic:
-Choose any random topic as per the specialist ${sessionDetail.selectedDoctor?.specialist}.
+Your Role: ${sessionDetail.selectedRecruiter?.specialist || "HR Recruiter"}
 
-This is the specific condition/disease that the entire conversation will focus on.
+Your goals:
+1. Introduce the job role clearly and professionally
+2. Ask if the candidate is interested before proceeding
+3. Conduct a realistic screening interview
+4. Evaluate the candidate silently while speaking naturally
+5. Keep the conversation friendly, human, and conversational
+6. Do NOT sound like an exam or a chatbot
+7. Ask follow-up questions when answers are vague
+8. End with a professional closing statement
 
-Training Rules:
-- Follow the communication style and language from your greeting message.
-- Don't lecture directly — ask questions like in a medical viva/interview.
-- Ask only one question at a time.
-- Cover symptoms, causes, differential diagnosis, red flags, and basic management.
+Job Role Context:
+You are recruiting for positions related to: ${sessionDetail.selectedRecruiter?.specialist}
 
-Answer Evaluation:
-- Correct answer → Praise and enhance with additional insights.
-- Incorrect answer → Calmly explain the correct answer with reasoning.
-- Never scold, always teach.
+Evaluation Criteria (internal only - DO NOT reveal these scores):
+- Communication skills and clarity
+- Relevant experience for the role
+- Confidence and professionalism
+- Technical/domain skill match
+- Interest level and cultural fit
 
-Behavior:
-- Act as a friendly teacher/mentor.
-- Keep answers short, clear, and learning-focused.
-- Encouragement is essential for correct answers.
+Interview Flow:
+1. Greet warmly and introduce yourself professionally
+2. Explain the role briefly (30-45 seconds)
+3. Ask: "Are you interested in exploring this opportunity?"
+4. If yes, proceed with 4-6 screening questions:
+   - Current role and relevant experience
+   - Key skills related to this position
+   - Availability and notice period
+   - Salary expectations (if appropriate)
+   - Why interested in this role
+   - Any questions they have for you
+5. Thank them professionally and mention next steps
 
-Goal:
-Help the user understand the topic well enough to confidently clear a medical interview on this topic.
+Behavior Guidelines:
+- Speak as a real recruiter would on a phone call
+- Keep responses natural, warm, and conversational
+- Listen actively and ask relevant follow-ups
+- Don't be overly formal or robotic
+- Show genuine interest in the candidate
+- Keep the call focused but not rushed (aim for 5-8 minutes)
+- End on a positive, professional note
+
+Language & Communication Style:
+- You are strictly bilingual and comfortable speaking in English, Hindi, or Hinglish (Mix of both).
+- Adapt your language based on how the candidate speaks:
+  - If they speak English → Reply in professional English.
+  - If they speak Hindi → Reply in polite, professional Hindi.
+  - If they use Hinglish → Reply in natural Hinglish.
+- Maintain professionalism regardless of the language used.
+
+Remember: You're building a relationship, not interrogating. Make the candidate feel comfortable while gathering the information you need.
         `,
           },
         ],
@@ -276,7 +306,7 @@ Help the user understand the topic well enough to confidently clear a medical in
   /**
    * endCall
    * Ends the ongoing voice call, cleans up listeners, generates
-   * a consultation report, and redirects the user back to dashboard.
+   * a candidate evaluation report, and redirects the user back to dashboard.
    */
   const endCall = async () => {
     if (!vapiInstance || !callActiveRef.current) {
@@ -285,7 +315,7 @@ Help the user understand the topic well enough to confidently clear a medical in
     }
 
     callActiveRef.current = false;
-    // Generate consultation report based on chat messages/
+    // Generate candidate evaluation report based on chat messages
     try {
       const result = await GenerateReport();
     } catch (e) {
@@ -312,7 +342,7 @@ Help the user understand the topic well enough to confidently clear a medical in
     setCallStarted(false);
     setVapiInstance(null);
 
-    toast.success("Your report is generated!");
+    toast.success("Candidate evaluation report generated!");
 
     // Redirect to dashboard after call ends and report is generated
     router.replace("/dashboard");
@@ -321,11 +351,11 @@ Help the user understand the topic well enough to confidently clear a medical in
   /**
    * GenerateReport
    * Sends the collected messages and session details to backend API to
-   * create a medical consultation report.
+   * create a candidate evaluation report.
    */
   const GenerateReport = async () => {
     setLoading(true);
-    const result = await axios.post("/api/medical-report", {
+    const result = await axios.post("/api/recruitment-report", {
       messages: messages,
       sessionDetail: sessionDetail,
       sessionId: sessionId,
@@ -352,20 +382,20 @@ Help the user understand the topic well enough to confidently clear a medical in
         {/* TODO: Add timer */}
       </div>
 
-      {/* Main content shows doctor details and conversation */}
+      {/* Main content shows recruiter details and conversation */}
       {sessionDetail && (
         <div className="flex items-center flex-col mt-10">
           <Image
-            src={sessionDetail.selectedDoctor?.image}
-            alt={sessionDetail.selectedDoctor?.specialist ?? ""}
+            src={sessionDetail.selectedRecruiter?.image}
+            alt={sessionDetail.selectedRecruiter?.specialist ?? ""}
             width={120}
             height={120}
             className="h-[100px] w-[100px] object-cover rounded-full"
           />
           <h2 className="mt-2 text-lg">
-            {sessionDetail.selectedDoctor?.specialist}
+            {sessionDetail.selectedRecruiter?.specialist}
           </h2>
-          <p className="text-sm text-gray-400">AI Education Assistant</p>
+          <p className="text-sm text-gray-400">AI Recruiter</p>
 
           {/* Show last 4 finalized messages and live transcript */}
           <div className="mt-12 overflow-y-auto flex flex-col items-center px-10 md:px-28 lg:px-52 xl:px-72">
@@ -399,4 +429,4 @@ Help the user understand the topic well enough to confidently clear a medical in
   );
 }
 
-export default MedicalVoiceAgent;
+export default RecruitmentCallAgent;

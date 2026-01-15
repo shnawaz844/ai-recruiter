@@ -15,6 +15,13 @@
       "when": 1766151934264,
       "tag": "0001_daily_tony_stark",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1768469842741,
+      "tag": "0002_mushy_eternals",
+      "breakpoints": true
     }
   ]
 }

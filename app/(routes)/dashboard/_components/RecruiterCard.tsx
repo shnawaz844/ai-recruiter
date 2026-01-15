@@ -10,9 +10,9 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 /**
- * Type definition for each doctor agent card
+ * Type definition for each recruiter agent card
  */
-export type doctorAgent = {
+export type recruiterAgent = {
     id: number,
     specialist: string,
     description: string,
@@ -24,15 +24,15 @@ export type doctorAgent = {
 }
 
 type props = {
-    doctorAgent: doctorAgent
+    recruiterAgent: recruiterAgent
 }
 
 /**
- * DoctorAgentCard Component
- * Renders a doctor card with image, name, description,
- * and a button to start a new consultation session.
+ * RecruiterCard Component
+ * Renders a recruiter card with image, name, description,
+ * and a button to start a new recruitment session.
  */
-function DoctorAgentCard({ doctorAgent }: props) {
+function RecruiterCard({ recruiterAgent }: props) {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const { has } = useAuth();
@@ -42,21 +42,21 @@ function DoctorAgentCard({ doctorAgent }: props) {
     const paidUser = has && has({ plan: 'pro' });
 
     /**
-     * 📞 Handle Start Consultation Button Click
-     * Creates a new session with the selected doctor and redirects to the session page.
+     * 📞 Handle Start Recruitment Button Click
+     * Creates a new session with the selected recruiter and redirects to the call page.
      */
-    const onStartConsultation = async () => {
+    const onStartRecruitment = async () => {
         setLoading(true);
 
         // Post the new session to backend API
         const result = await axios.post('/api/session-chat', {
-            notes: 'New Query',
-            selectedDoctor: doctorAgent
+            notes: 'New Recruitment Session',
+            selectedRecruiter: recruiterAgent
         });
 
         if (result.data?.sessionId) {
-            // Navigate to the new session page
-            router.push('/dashboard/medical-agent/' + result.data.sessionId);
+            // Navigate to the new recruitment call page
+            router.push('/dashboard/recruiter/' + result.data.sessionId);
         }
 
         setLoading(false);
@@ -64,35 +64,35 @@ function DoctorAgentCard({ doctorAgent }: props) {
 
     return (
         <div className='relative'>
-            {/* 🔒 Premium badge if doctor requires subscription */}
-            {doctorAgent.subscriptionRequired && (
+            {/* 🔒 Premium badge if recruiter requires subscription */}
+            {recruiterAgent.subscriptionRequired && (
                 <Badge className='absolute m-2 right-0'>Premium</Badge>
             )}
 
-            {/* 👨‍⚕️ Doctor image */}
+            {/* 👔 Recruiter image */}
             <Image
-                src={doctorAgent.image}
-                alt={doctorAgent.specialist}
+                src={recruiterAgent.image}
+                alt={recruiterAgent.specialist}
                 width={200}
                 height={300}
                 className='w-full h-[230px] object-cover rounded-xl'
             />
 
-            {/* 🩺 Specialist title */}
-            <h2 className='font-bold mt-1'>{doctorAgent.specialist}</h2>
+            {/* 💼 Specialist title */}
+            <h2 className='font-bold mt-1'>{recruiterAgent.specialist}</h2>
 
-            {/* 📋 Doctor description */}
+            {/* 📋 Recruiter description */}
             <p className='line-clamp-2 text-sm text-gray-500'>
-                {doctorAgent.description}
+                {recruiterAgent.description}
             </p>
 
-            {/* 🚀 Start consultation button */}
+            {/* 🚀 Start recruitment button */}
             <Button
                 className='w-full mt-2'
-                onClick={onStartConsultation}
-            // disabled={!paidUser && doctorAgent.subscriptionRequired} // disable if doctor is premium & user isn't
+                onClick={onStartRecruitment}
+            // disabled={!paidUser && recruiterAgent.subscriptionRequired} // disable if recruiter is premium & user isn't
             >
-                Start Training{' '}
+                Start Recruitment{' '}
                 {loading ? (
                     <Loader2Icon className='animate-spin' />
                 ) : (
@@ -103,4 +103,4 @@ function DoctorAgentCard({ doctorAgent }: props) {
     )
 }
 
-export default DoctorAgentCard
+export default RecruiterCard
