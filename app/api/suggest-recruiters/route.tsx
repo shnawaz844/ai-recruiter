@@ -1,5 +1,5 @@
 import { openai } from "@/config/OpenAiModel";
-import { AITeacherAgents } from "@/shared/list";
+import { AIRecruiterAgents } from "@/shared/list";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -28,7 +28,7 @@ Rules (non-negotiable):
 - If nothing matches, return an empty array [].
 
 Doctor List:
-${JSON.stringify( AITeacherAgents )}
+${JSON.stringify(AIRecruiterAgents)}
 `,
         },
         {

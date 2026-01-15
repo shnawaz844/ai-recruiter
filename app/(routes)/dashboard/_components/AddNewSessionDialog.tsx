@@ -91,7 +91,6 @@ function AddNewSessionDialog() {
       <DialogTrigger asChild>
         <Button
           className="mt-3"
-          disabled={!paidUser && historyList?.length >= 1} // restrict for free users
         >
           + Start Recruitment
         </Button>
