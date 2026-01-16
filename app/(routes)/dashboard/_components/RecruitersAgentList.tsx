@@ -16,7 +16,6 @@ function RecruitersAgentList() {
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mt-5'>
                 {AIRecruiterAgents.map((recruiter, index) => (
                     <div key={index}>
-                        {/* 🧑‍💼 Render each recruiter agent card */}
                         <RecruiterCard recruiterAgent={recruiter} />
                     </div>
                 ))}
