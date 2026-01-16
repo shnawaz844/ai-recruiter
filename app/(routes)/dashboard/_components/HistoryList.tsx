@@ -61,8 +61,8 @@ function HistoryList() {
                     <AddNewSessionDialog />
                 </div>
             ) : (
-                // 📊 Show recruitment history table
-                <div>
+                // 📊 Show recruitment history table with hidden scrollbar
+                <div className='max-h-[300px] overflow-y-auto scrollbar-hide' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     <HistoryTable historyList={historyList} />
                 </div>
             )}
