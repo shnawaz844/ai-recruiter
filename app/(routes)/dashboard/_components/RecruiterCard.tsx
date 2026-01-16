@@ -79,7 +79,7 @@ function RecruiterCard({ recruiterAgent }: props) {
             />
 
             {/* 💼 Specialist title */}
-            <h2 className='font-bold mt-1 min-h-[48px]'>{recruiterAgent.specialist}</h2>
+            <h2 className='font-bold mt-1'>{recruiterAgent.specialist}</h2>
 
             {/* 📋 Recruiter description */}
             <p className='line-clamp-2 text-sm text-gray-500'>
