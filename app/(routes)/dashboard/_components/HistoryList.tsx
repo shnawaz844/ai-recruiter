@@ -62,7 +62,12 @@ function HistoryList() {
                 </div>
             ) : (
                 // 📊 Show recruitment history table
-                <div>
+                <div className='max-h-[300px] overflow-y-auto' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                    <style jsx>{`
+                        div::-webkit-scrollbar {
+                            display: none;
+                        }
+                    `}</style>
                     <HistoryTable historyList={historyList} />
                 </div>
             )}
