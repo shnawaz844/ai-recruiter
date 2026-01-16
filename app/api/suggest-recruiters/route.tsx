@@ -13,14 +13,14 @@ export async function POST(req: NextRequest) {
           content: `
 You are a strict JSON API.
 
-You are given a fixed list of teachers as JSON.
-Your job is to analyze user symptoms and return ONLY the most relevant teachers from that list.
+You are given a fixed list of recruiters as JSON.
+Your job is to analyze user symptoms and return ONLY the most relevant recruiters from that list.
 
 Rules (non-negotiable):
-- Use ONLY teachers from the provided list.
+- Use ONLY recruiters from the provided list.
 - Do NOT modify any field values.
 - Do NOT add or remove fields.
-- Do NOT invent new teachers.
+- Do NOT invent new recruiters.
 - Do NOT return explanations, text, or markdown.
 - Do NOT wrap the response in code blocks.
 - Return ONLY a valid JSON array.

@@ -5,7 +5,7 @@ export const AIRecruiterAgents = [
         description: "Screens candidates for software engineering roles - frontend, backend, and full-stack positions.",
         image: "/recruiter-tech.jpg",
         agentPrompt:
-            "Hi! Main Recruitment team se call kar raha hoon. Thanks for joining. Hamaare paas ek exciting Software Engineer role hai jo aapki profile se match karta hai. Before we start, main role ke baare mein thoda bata deta hoon. Hum ek talented engineer dhoond rahe hain. Kya yeh role aapko interesting lag raha hai for further discussion?",
+            "Hello! I'm calling from the recruitment team. We have an excellent Software Engineer role that matches your profile. Let me tell you a bit about it - we are looking for a talented software engineer who can work on frontend, backend, or full-stack development. Does this role sound interesting to you for further discussion?",
         voiceId: "chris",
         gender: "male" as const,
         subscriptionRequired: false,
@@ -17,7 +17,7 @@ export const AIRecruiterAgents = [
         description: "Specializes in hiring for sales representatives, account executives, and marketing professionals.",
         image: "/recruiter-sales.jpg",
         agentPrompt:
-            "Hello! Kaise hain aap? Main Sales aur Marketing recruitment team se hoon. Maine aapki profile dekhi aur mujhe laga ki aap hamare naye role ke liye perfect fit ho sakte hain. Ye ek dynamic role hai business growth drive karne ke liye. Kya aap is opportunity ke baare mein aur discuss karna chahenge?",
+            "Hello! How are you? I'm from the Sales and Marketing recruitment team. I reviewed your profile and thought you could be a perfect fit for our new role. This is a dynamic position focused on driving business growth. Would you like to discuss this opportunity further?",
         voiceId: "sarge",
         gender: "male" as const,
         subscriptionRequired: true,
@@ -29,7 +29,7 @@ export const AIRecruiterAgents = [
         description: "Recruits product managers, product owners, and product designers for tech companies.",
         image: "/recruiter-product.jpg",
         agentPrompt:
-            "Hi there! Main Product Manager role ke regarding call kar raha hoon. Ye position product strategy aur cross-functional teams lead karne ke liye hai. Details mein jaane se pehle, main aapke current experience aur career goals samajhna chahoonga. Kya aap interested hain is baare mein baat karne ke liye?",
+            "Hi! I'm calling regarding a Product Manager role. This position involves product strategy and leading cross-functional teams. Before we dive into details, I'd like to understand your current experience and career goals. Are you interested in discussing this further?",
         voiceId: "atlas",
         gender: "male" as const,
         subscriptionRequired: true,
@@ -41,7 +41,7 @@ export const AIRecruiterAgents = [
         description: "Focuses on hiring data scientists, ML engineers, and analytics professionals.",
         image: "/recruiter-data.jpg",
         agentPrompt:
-            "Hello! Main Data Science aur ML roles ke liye hiring notice kar raha hoon. Hamaare paas ek Data Scientist ki opening hai jisme aap cutting-edge AI projects pe kaam karenge. Mujhe aapka data analysis experience discuss karna hai. Kya aap is role mein interest rakhte hain?",
+            "Hello! I'm reaching out about Data Science and ML roles. We have a Data Scientist opening where you'll work on cutting-edge AI projects. I'd like to discuss your data analysis experience. Are you interested in this role?",
         voiceId: "hudson",
         gender: "male" as const,
         subscriptionRequired: true,
@@ -53,7 +53,7 @@ export const AIRecruiterAgents = [
         description: "Recruits for operations, supply chain, and logistics management positions.",
         image: "/recruiter-ops.jpg",
         agentPrompt:
-            "Hi! Main Operations Manager position ke liye call kar rahi hoon. Hamein strong organizational skills waale candidate ki talaash hai jo efficiency improve kar sake. Main aapke operations experience ke baare mein sunna chahoongi. Kya hum is opportunity ko explore kar sakte hain?",
+            "Hi! I'm calling about an Operations Manager position. We're looking for a candidate with strong organizational skills who can improve efficiency. I'd love to hear about your operations experience. Can we explore this opportunity together?",
         voiceId: "eileen",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -65,7 +65,7 @@ export const AIRecruiterAgents = [
         description: "Specializes in finance professionals, accountants, and financial analysts.",
         image: "/recruiter-finance.jpg",
         agentPrompt:
-            "Hello! Main Finance aur Accounting roles ke liye recruit karti hoon. Hamaare paas financial analysis aur budgeting ke liye ek opening hai. Ideal candidate ke paas strong reporting skills honi chahiye. Kya aap apne finance updates aur background discuss karne mein interested hain?",
+            "Hello! I recruit for Finance and Accounting roles. We have an opening for financial analysis and budgeting. The ideal candidate should have strong reporting skills. Would you be interested in discussing your finance background?",
         voiceId: "charlotte",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -77,7 +77,7 @@ export const AIRecruiterAgents = [
         description: "Recruits designers for user experience, user interface, and product design roles.",
         image: "/ux-ui.png",
         agentPrompt:
-            "Hi! Main ek UX/UI Designer position ke liye hiring kar rahi hoon. Ye ek innovative company hai jahan design ko bahut value di jaati hai. Aapko intuitive interfaces design karne honge. Main aapke portfolio aur design process ke baare mein sunna chahti hoon. Kya yeh role aapko exciting lag raha hai?",
+            "Hi! I'm hiring for a UX/UI Designer position. This is an innovative company where design is highly valued. You'll be designing intuitive interfaces. I'd love to hear about your portfolio and design process. Does this role sound exciting to you?",
         voiceId: "ayla",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -89,7 +89,7 @@ export const AIRecruiterAgents = [
         description: "Hires customer success managers, support specialists, and account managers.",
         image: "/recruiter-customer.jpg",
         agentPrompt:
-            "Hello! Main Customer Success Manager role ke liye reach out kar rahi hoon. Is role mein aap hamaare clients ke key contact rahenge. Hamein excellent communication skills waale candidate chahiye. Kya aap apne customer-facing experience ke baare mein discuss karna chahenge?",
+            "Hello! I'm reaching out about a Customer Success Manager role. In this position, you'll be the key contact for our clients. We need a candidate with excellent communication skills. Would you like to discuss your customer-facing experience?",
         voiceId: "aaliyah",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -101,7 +101,7 @@ export const AIRecruiterAgents = [
         description: "Recruits HR professionals, talent acquisition specialists, and people operations roles.",
         image: "/recruiter-hr.jpg",
         agentPrompt:
-            "Hi! Main HR positions ke liye recruiter hoon. Hamaare paas ek talent management aur employee relations ke liye opening hai. Agar aap workplace culture build karne mein passionate hain, toh ye role aapke liye hai. Kya aap is opportunity ko explore karna chahenge?",
+            "Hi! I'm a recruiter for HR positions. We have an opening for talent management and employee relations. If you're passionate about building workplace culture, this role is for you. Would you like to explore this opportunity?",
         voiceId: "susan",
         gender: "female" as const,
         subscriptionRequired: true,
@@ -113,7 +113,7 @@ export const AIRecruiterAgents = [
         description: "Specializes in C-level executives, directors, and senior leadership positions.",
         image: "/recruiter-exec.jpg",
         agentPrompt:
-            "Hello! Main senior leadership position ke liye executive search kar raha hoon. Is role main strategic vision aur team leadership ki zaroorat hai. Aapka background dekh kar lagta hai ki aap ek excellent fit ho sakte hain. Kya hum aapki leadership philosophy aur career goals discuss kar sakte hain?",
+            "Hello! I'm conducting an executive search for a senior leadership position. This role requires strategic vision and team leadership. Based on your background, you could be an excellent fit. Can we discuss your leadership philosophy and career goals?",
         voiceId: "Rohan",
         gender: "male" as const,
         subscriptionRequired: true,

@@ -75,7 +75,7 @@ function RecruitmentCallAgent() {
       name: "AI HR Recruiter Voice Agent",
 
       // Use the recruiter's custom greeting/prompt
-      firstMessage: sessionDetail.selectedRecruiter?.agentPrompt || "Hello, thank you for joining this call.",
+      firstMessage: sessionDetail.selectedRecruiter?.agentPrompt,
 
       transcriber: {
         model: "nova-2",
