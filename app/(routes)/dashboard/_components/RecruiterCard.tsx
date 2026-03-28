@@ -65,9 +65,9 @@ function RecruiterCard({ recruiterAgent }: props) {
     return (
         <div className='relative'>
             {/* 🔒 Premium badge if recruiter requires subscription */}
-            {recruiterAgent.subscriptionRequired && (
+            {/* {recruiterAgent.subscriptionRequired && (
                 <Badge className='absolute m-2 right-0'>Premium</Badge>
-            )}
+            )} */}
 
             {/* 👔 Recruiter image */}
             <Image
@@ -88,7 +88,7 @@ function RecruiterCard({ recruiterAgent }: props) {
 
             {/* 🚀 Start recruitment button */}
             <Button
-                className='w-full mt-2'
+                className='w-full mt-2 bg-[#ff6600]'
                 onClick={onStartRecruitment}
             // disabled={!paidUser && recruiterAgent.subscriptionRequired} // disable if recruiter is premium & user isn't
             >

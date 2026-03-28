@@ -1,4 +1,5 @@
 import { UserButton } from '@clerk/nextjs'
+import { IconRobot } from '@tabler/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -14,44 +15,22 @@ const menuOptions = [
         name: 'History',
         path: '/dashboard/history'
     },
-    {
-        id: 3,
-        name: 'Pricing',
-        path: '/dashboard/billing'
-    },
-    {
-        id: 4,
-        name: 'Profile',
-        path: '/profile'
-    }
+
 ]
 function AppHeader() {
     return (
         <div className='flex items-center justify-between p-3 shadow px-10 md:px-20 lg:px-10'>
-            <div className='flex gap-2 items-center'>
-                <div className='bg-primary p-2 rounded-full'>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-bot"
-                    >
-                        <path d="M12 8V4H8" />
-                        <rect width="16" height="12" x="4" y="8" rx="2" />
-                        <path d="M2 14h2" />
-                        <path d="M20 14h2" />
-                        <path d="M15 13v2" />
-                        <path d="M9 13v2" />
-                    </svg>
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div className="bg-[#ff6600] p-1.5 rounded-lg">
+                    <IconRobot stroke={2} className="text-white h-5 w-5" />
                 </div>
-                <h2 className='font-bold text-xl'>AI Recruitment</h2>
-            </div>
+                <div className="flex flex-col">
+                    <span className="font-bold text-xl text-neutral-900 dark:text-white leading-none">AI Recruiter</span>
+                    <span className="text-[10px] font-bold text-[#ff6600] dark:text-blue-400 uppercase tracking-widest mt-0.5 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded-md w-fit">
+                        Parth gautam Foundation
+                    </span>
+                </div>
+            </Link>
             <div className='hidden md:flex gap-12 items-center'>
                 {menuOptions.map((option, index) => (
                     <Link key={index} href={option.path}>

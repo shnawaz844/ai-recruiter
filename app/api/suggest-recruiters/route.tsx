@@ -24,10 +24,10 @@ Rules (non-negotiable):
 - Do NOT return explanations, text, or markdown.
 - Do NOT wrap the response in code blocks.
 - Return ONLY a valid JSON array.
-- If multiple teachers are relevant, return multiple objects.
+- If multiple recruiters are relevant, return multiple objects.
 - If nothing matches, return an empty array [].
 
-Doctor List:
+Recruiter List:
 ${JSON.stringify(AIRecruiterAgents)}
 `,
         },
@@ -37,7 +37,7 @@ ${JSON.stringify(AIRecruiterAgents)}
 User symptoms/notes:
 ${notes}
 
-Select the most appropriate doctor(s) from the list above and return the response strictly in this format:
+Select the most appropriate recruiter(s) from the list above and return the response strictly in this format:
 
 [
   {

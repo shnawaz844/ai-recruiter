@@ -23,6 +23,7 @@ import { SessionDetail } from "../recruiter/[sessionId]/page";
 function AddNewSessionDialog() {
   // 🧠 Local state management
   const [note, setNote] = useState<string>(); // stores user notes for session
+  const [step, setStep] = useState(0); // 0: Notes, 1: Recruiter Selection
   const [loading, setLoading] = useState(false); // tracks loading state
   const [suggestedRecruiters, setSuggestedRecruiters] = useState<recruiterAgent[]>(); // stores suggested recruiters
   const [selectedRecruiter, setSelectedRecruiter] = useState<recruiterAgent>({
@@ -66,6 +67,7 @@ function AddNewSessionDialog() {
 
     console.log(result.data);
     setSuggestedRecruiters(result.data);
+    setStep(1);
     setLoading(false);
   };
 
@@ -101,15 +103,32 @@ function AddNewSessionDialog() {
         <DialogHeader>
           <DialogTitle>Add Recruitment Session Details</DialogTitle>
           <DialogDescription asChild>
-            {/* Step 1: Enter Notes */}
-            <div>
-              <h2>Enter notes for this recruitment session</h2>
-              <Textarea
-                placeholder="Add session notes here (e.g., job role, candidate name)..."
-                className="h-[200px] mt-1"
-                onChange={(e) => setNote(e.target.value)}
-              />
-            </div>
+            {/* Step 0: Enter Notes */}
+            {step === 0 ? (
+              <div className="mt-3">
+                <h2 className="font-semibold text-neutral-800 dark:text-neutral-200">Enter notes for this recruitment session</h2>
+                <Textarea
+                  placeholder="Add session notes here (e.g., job role, candidate name)..."
+                  className="h-[200px] mt-2 border-neutral-200 dark:border-neutral-800"
+                  onChange={(e) => setNote(e.target.value)}
+                />
+              </div>
+            ) : (
+              /* Step 1: Select Recruiter */
+              <div className="mt-3">
+                <h2 className="font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Select the most relevant recruiter</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {suggestedRecruiters?.map((recruiter, index) => (
+                    <SuggestedRecruiterCard
+                      key={index}
+                      recruiterAgent={recruiter}
+                      setSelectedRecruiter={setSelectedRecruiter}
+                      selectedRecruiter={selectedRecruiter}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </DialogDescription>
         </DialogHeader>
 
@@ -121,14 +140,25 @@ function AddNewSessionDialog() {
           </DialogClose>
 
           {/* Next or Start Button depending on the step */}
-
-          <Button
-            disabled={loading || !selectedRecruiter}
-            onClick={() => onStartRecruitment()}
-          >
-            Start Recruitment{" "}
-            {loading ? <Loader2 className="animate-spin" /> : <ArrowRight />}
-          </Button>
+          {step === 0 ? (
+            <Button
+              disabled={loading || !note}
+              onClick={() => OnClickNext()}
+              className="px-8"
+            >
+              Next{" "}
+              {loading ? <Loader2 className="animate-spin ml-2" /> : <ArrowRight className="ml-2" />}
+            </Button>
+          ) : (
+            <Button
+              disabled={loading || !selectedRecruiter}
+              onClick={() => onStartRecruitment()}
+              className="px-8"
+            >
+              Start Recruitment{" "}
+              {loading ? <Loader2 className="animate-spin ml-2" /> : <ArrowRight className="ml-2" />}
+            </Button>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>
