@@ -31,13 +31,13 @@ function AppHeader() {
                     </span>
                 </div>
             </Link>
-            <div className='hidden md:flex gap-12 items-center'>
+            {/* <div className='hidden md:flex gap-12 items-center'>
                 {menuOptions.map((option, index) => (
                     <Link key={index} href={option.path}>
                         <h2 className='hover:font-bold cursor-pointer transition-all'>{option.name}</h2>
                     </Link>
                 ))}
-            </div>
+            </div> */}
             <UserButton />
         </div>
     )

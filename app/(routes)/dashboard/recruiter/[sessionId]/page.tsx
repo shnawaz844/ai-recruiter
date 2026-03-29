@@ -5,7 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { recruiterAgent } from "../../_components/RecruiterCard";
 import { Circle, Loader, Mic, MicOff, PhoneCall, PhoneOff } from "lucide-react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Vapi from "@vapi-ai/web";
 import { toast } from "sonner";
@@ -94,9 +93,17 @@ function RecruitmentCallAgent() {
 
   // Fetch session detail data from backend API
   const GetSessionDetails = async () => {
-    const result = await axios.get(`/api/session-chat?sessionId=${sessionId}`);
-    console.log("Session deatails", result.data);
-    setSessionDetail(result.data);
+    try {
+      const result = await axios.get(`/api/session-chat?sessionId=${sessionId}`);
+      console.log("Session details retrieved:", result.data);
+      if (!result.data || !result.data.selectedRecruiter) {
+        console.warn("⚠️ Session details or recruiter info is missing!");
+      }
+      setSessionDetail(result.data);
+    } catch (error) {
+      console.error("❌ Failed to fetch session details:", error);
+      toast.error("Failed to load interview session.");
+    }
   };
 
   /**
@@ -154,7 +161,14 @@ function RecruitmentCallAgent() {
     setLoading(true);
 
     // Initialize Vapi instance with your API key
-    const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!);
+    const vapiKey = process.env.NEXT_PUBLIC_VAPI_API_KEY;
+    console.log("Vapi Key defined:", !!vapiKey);
+    if (!vapiKey) {
+      toast.error("Vapi API key is missing. Check your .env file.");
+      setLoading(false);
+      return;
+    }
+    const vapi = new Vapi(vapiKey);
     setVapiInstance(vapi);
 
     // Configuration for the AI recruiter voice agent
@@ -386,7 +400,8 @@ Remember: You're building a relationship, not interrogating. Make the candidate 
         return;
       }
 
-      console.error("Vapi error:", err);
+      console.error("Vapi error details:", err);
+      toast.error(`Vapi connection error: ${err?.errorMsg || "Unknown error"}`);
     });
   };
 

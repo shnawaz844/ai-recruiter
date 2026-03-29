@@ -13,7 +13,7 @@ function RecruitersAgentList() {
             <h2 className='font-bold text-xl'>AI Recruitment Specialists</h2>
 
             {/* 👔 Responsive grid layout for recruiter cards */}
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mt-5'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8 mt-5'>
                 {AIRecruiterAgents.map((recruiter, index) => (
                     <div key={index}>
                         <RecruiterCard recruiterAgent={recruiter} />

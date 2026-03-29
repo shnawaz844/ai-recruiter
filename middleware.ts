@@ -3,6 +3,9 @@ import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)', '/'])
 
 export default clerkMiddleware(async (auth, req) => {
+    const authObj = await auth()
+    console.log(`[Middleware] Path: ${req.nextUrl.pathname}, UserID: ${authObj.userId}`)
+    
     if (!isPublicRoute(req)) {
         await auth.protect()
     }

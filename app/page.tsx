@@ -2,7 +2,6 @@
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { FeatureBentoGrid } from "./_components/FeatureBentoGrid";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -41,9 +40,9 @@ export default function Home() {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-8">
-              <span className="text-neutral-900 dark:text-white block">Hire Faster with</span>
+              <span className="text-neutral-900 dark:text-white block">Get a Job Faster with</span>
               <span className="bg-linear-to-r from-[#ff6600] via-[#ff6600] to-[#ff6600] bg-clip-text text-transparent">
-                AI-Powered Recruiting
+                AI-Powered Recruitment Coach
               </span>
             </h1>
 
@@ -163,11 +162,6 @@ const Navbar = () => {
             <>
               <Link href="/dashboard" className="hidden sm:block">
                 <Button variant="ghost" className="font-bold text-sm">Login</Button>
-              </Link>
-              <Link href="/dashboard">
-                <Button className="rounded-xl px-6 bg-neutral-900 dark:bg-white dark:text-neutral-900 font-bold text-sm shadow-xl shadow-black/20 transition-all hover:scale-105 active:scale-95">
-                  Join Beta
-                </Button>
               </Link>
             </>
           ) : (

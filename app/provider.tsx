@@ -19,13 +19,22 @@ function Provider({
     const { user } = useUser();
     const [userDetail, setUserDetail] = useState<any>();
     useEffect(() => {
-        user && CreateNewUser();
-    }, [user])
+        if (user && !userDetail) {
+            CreateNewUser();
+        }
+    }, [user, userDetail])
 
     const CreateNewUser = async () => {
-        const result = await axios.post('/api/users');
-        console.log(result.data);
-        setUserDetail(result.data);
+        try {
+            const result = await axios.post('/api/users');
+            if (typeof result.data === 'object') {
+                setUserDetail(result.data);
+            } else {
+                console.error("Received non-JSON response from /api/users");
+            }
+        } catch (error) {
+            console.error("Error creating/fetching user:", error);
+        }
     }
 
     return (

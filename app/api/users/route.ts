@@ -7,6 +7,10 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     const user = await currentUser();
 
+    if (!user) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     try {
         // Check if User Already Exist
         const users = await db.select().from(usersTable)

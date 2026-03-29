@@ -88,16 +88,18 @@ function RecruiterCard({ recruiterAgent }: props) {
 
             {/* 🚀 Start recruitment button */}
             <Button
-                className='w-full mt-2 bg-[#ff6600]'
+                className='w-full mt-2 bg-[#ff6600] text-[10px] sm:text-sm h-9 sm:h-auto'
                 onClick={onStartRecruitment}
             // disabled={!paidUser && recruiterAgent.subscriptionRequired} // disable if recruiter is premium & user isn't
             >
-                Start Recruitment{' '}
-                {loading ? (
-                    <Loader2Icon className='animate-spin' />
-                ) : (
-                    <IconArrowRight />
-                )}
+                <div className='flex items-center gap-1 overflow-hidden'>
+                    <span className='truncate'>Start Preparation</span>
+                    {loading ? (
+                        <Loader2Icon className='h-4 w-4 animate-spin shrink-0' />
+                    ) : (
+                        <IconArrowRight className='h-4 w-4 shrink-0' />
+                    )}
+                </div>
             </Button>
         </div>
     )
