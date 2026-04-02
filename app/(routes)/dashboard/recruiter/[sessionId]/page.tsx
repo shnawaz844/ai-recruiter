@@ -526,7 +526,7 @@ Remember: You're building a relationship, not interrogating. Make the candidate 
                   <div className={`relative w-full h-full rounded-full overflow-hidden border-4 ${currentRole === 'assistant' ? 'border-[#ff6600]' : 'border-white dark:border-neutral-800'} shadow-2xl bg-neutral-200 dark:bg-neutral-800 transition-all duration-300`}>
                     <video
                       ref={videoRef}
-                      src={sessionDetail.selectedRecruiter?.gender === "male" ? "/lantaai.mp4" : "/female.mp4"}
+                      src={sessionDetail.selectedRecruiter?.gender === "male" ? "/lantaai-male.mp4" : "/female.agent.mp4"}
                       loop
                       muted
                       playsInline
