@@ -3,7 +3,7 @@ export const AIRecruiterAgents = [
         id: 1,
         specialist: "Software Engineer Recruiter",
         description: "Screens candidates for software engineering roles - frontend, backend, and full-stack positions.",
-        image: "/recruiter-tech.jpg",
+        image: "/male1.png",
         agentPrompt:
             "Hello! I'm calling from the recruitment team. We have an excellent Software Engineer role that matches your profile. Let me tell you a bit about it - we are looking for a talented software engineer who can work on frontend, backend, or full-stack development. Does this role sound interesting to you for further discussion?",
         voiceId: "chris",
@@ -15,7 +15,7 @@ export const AIRecruiterAgents = [
         id: 2,
         specialist: "Sales & Marketing Recruiter",
         description: "Specializes in hiring for sales representatives, account executives, and marketing professionals.",
-        image: "/recruiter-sales.jpg",
+        image: "/male2.png",
         agentPrompt:
             "Hello! How are you? I'm from the Sales and Marketing recruitment team. I reviewed your profile and thought you could be a perfect fit for our new role. This is a dynamic position focused on driving business growth. Would you like to discuss this opportunity further?",
         voiceId: "sarge",
@@ -27,7 +27,7 @@ export const AIRecruiterAgents = [
         id: 3,
         specialist: "Product Manager Recruiter",
         description: "Recruits product managers, product owners, and product designers for tech companies.",
-        image: "/recruiter-product.jpg",
+        image: "/male3.png",
         agentPrompt:
             "Hi! I'm calling regarding a Product Manager role. This position involves product strategy and leading cross-functional teams. Before we dive into details, I'd like to understand your current experience and career goals. Are you interested in discussing this further?",
         voiceId: "atlas",
@@ -39,7 +39,7 @@ export const AIRecruiterAgents = [
         id: 4,
         specialist: "Data Science Recruiter",
         description: "Focuses on hiring data scientists, ML engineers, and analytics professionals.",
-        image: "/recruiter-data.jpg",
+        image: "/male4.png",
         agentPrompt:
             "Hello! I'm reaching out about Data Science and ML roles. We have a Data Scientist opening where you'll work on cutting-edge AI projects. I'd like to discuss your data analysis experience. Are you interested in this role?",
         voiceId: "hudson",
@@ -51,7 +51,7 @@ export const AIRecruiterAgents = [
         id: 5,
         specialist: "Operations Manager Recruiter",
         description: "Recruits for operations, supply chain, and logistics management positions.",
-        image: "/recruiter-ops.jpg",
+        image: "/female1.png",
         agentPrompt:
             "Hi! I'm calling about an Operations Manager position. We're looking for a candidate with strong organizational skills who can improve efficiency. I'd love to hear about your operations experience. Can we explore this opportunity together?",
         voiceId: "eileen",
@@ -111,7 +111,7 @@ export const AIRecruiterAgents = [
         id: 10,
         specialist: "Executive & Leadership Recruiter",
         description: "Specializes in C-level executives, directors, and senior leadership positions.",
-        image: "/recruiter-exec.jpg",
+        image: "/male5.png",
         agentPrompt:
             "Hello! I'm conducting an executive search for a senior leadership position. This role requires strategic vision and team leadership. Based on your background, you could be an excellent fit. Can we discuss your leadership philosophy and career goals?",
         voiceId: "Rohan",
